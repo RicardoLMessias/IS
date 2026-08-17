@@ -1,0 +1,126 @@
+.feedback {
+  padding: clamp(96px, 10vw, 142px) 24px;
+  background: #0b0f10;
+  color: #f5f1f6;
+}
+
+.feedback__container {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+
+.feedback__header {
+  max-width: 700px;
+  margin: 0 auto 68px;
+  text-align: center;
+}
+
+.feedback__header h2 {
+  margin: 0;
+  font: 600 clamp(2.25rem, 4vw, 3rem)/1.15 "Sora", sans-serif;
+  letter-spacing: -0.045em;
+}
+
+.feedback__header p {
+  margin: 22px 0 0;
+  color: #d4ccd6;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.feedback__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.feedback-card {
+  min-height: 292px;
+  padding: 32px;
+  border: 1px solid rgb(228 181 255 / 8%);
+  border-radius: 16px;
+  background: #101415;
+  transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease;
+}
+
+.feedback-card:hover {
+  border-color: rgb(228 181 255 / 24%);
+  background: #141719;
+  transform: translateY(-4px);
+}
+
+.feedback-card__person {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.feedback-card__avatar {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #1c2021;
+}
+
+.feedback-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feedback-card h3 {
+  margin: 0;
+  font: 600 1.05rem/1.25 "Sora", sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.feedback-card__person p {
+  margin: 4px 0 0;
+  color: #e797ff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.feedback-card blockquote {
+  margin: 27px 0 0;
+  color: #e3dbe5;
+  font-size: 0.96rem;
+  font-style: italic;
+  line-height: 1.62;
+}
+
+@media (max-width: 900px) {
+  .feedback__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .feedback {
+    padding: 88px 20px;
+  }
+
+  .feedback__header {
+    margin-bottom: 48px;
+  }
+
+  .feedback__header p {
+    margin-top: 16px;
+  }
+
+  .feedback__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .feedback-card {
+    min-height: 0;
+    padding: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feedback-card { transition-duration: 1ms; }
+}

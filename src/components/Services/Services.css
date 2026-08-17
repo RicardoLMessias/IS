@@ -1,0 +1,171 @@
+.services-section {
+  padding: clamp(96px, 10vw, 142px) 24px;
+  background: #101415;
+  color: #f5f1f6;
+  scroll-margin-top: 0;
+}
+
+.services-section__container {
+  width: min(100%, 1072px);
+  margin-inline: auto;
+}
+
+.services-section__header {
+  max-width: 650px;
+  margin: 0 auto 68px;
+  text-align: center;
+}
+
+.services-section__header h2 {
+  margin: 0;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(2rem, 3.1vw, 2.6rem);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+
+.services-section__header p {
+  margin: 22px auto 0;
+  color: #d4ccd6;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 338px;
+  padding: 32px;
+  border: 1px solid rgb(228 181 255 / 9%);
+  border-radius: 7px;
+  background: #211e29;
+  box-shadow: 0 18px 50px rgb(0 0 0 / 8%);
+  transition: border-color 240ms ease, background-color 240ms ease, transform 240ms ease;
+}
+
+.service-card:hover {
+  border-color: rgb(228 181 255 / 28%);
+  background: #25212e;
+  transform: translateY(-4px);
+}
+
+.service-card__icon {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 25px;
+  color: #e797ff;
+  place-items: center;
+}
+
+.service-card__icon svg {
+  width: 29px;
+  height: 29px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.service-card h3 {
+  margin: 0;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(1.45rem, 2vw, 1.75rem);
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+
+.service-card > p {
+  margin: 16px 0 0;
+  color: #ded6e1;
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+.service-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-card__tags li {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #1b1c20;
+  color: #ed94ff;
+  font-size: 0.74rem;
+  line-height: 1;
+}
+
+.service-card__more {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 10px;
+  margin-top: auto;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: #ed94ff;
+  cursor: pointer;
+  font: 700 0.88rem "Manrope", sans-serif;
+}
+
+.service-card__more svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  transition: transform 180ms ease;
+}
+
+.service-card__more:hover svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 760px) {
+  .services-section {
+    padding: 88px 20px;
+  }
+
+  .services-section__header {
+    margin-bottom: 46px;
+  }
+
+  .services-section__header p {
+    margin-top: 16px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: 0;
+    padding: 26px;
+  }
+
+  .service-card__more {
+    margin-top: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-card__more svg {
+    transition-duration: 1ms;
+  }
+}

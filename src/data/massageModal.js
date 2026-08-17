@@ -1,0 +1,120 @@
+export const massageModal = {
+  id: "massagem",
+  eyebrow: "Massoterapia, Recovery e Terapias Manuais",
+  title: "Cuidado individual para movimento, alívio e recuperação.",
+  introduction: [
+    "O atendimento é voltado para o tratamento e alívio de dores musculares e articulares, recuperação física, melhora da mobilidade e otimização da performance corporal e esportiva, atendendo tanto atletas e praticantes de atividade física quanto pessoas que apresentam dores, tensões musculares, rigidez ou desconfortos decorrentes da rotina.",
+    "Cada atendimento é realizado de maneira individualizada, levando em consideração as principais queixas, limitações de movimento, regiões de maior tensão e necessidades de cada pessoa. A partir dessa avaliação, podem ser utilizadas diferentes técnicas de forma isolada ou combinada durante a sessão.",
+    "O objetivo é trabalhar não apenas o ponto em que a dor é percebida, mas também possíveis tensões musculares, restrições fasciais, pontos-gatilho e alterações de mobilidade que possam estar contribuindo para o desconforto.",
+  ],
+  highlights: ["Avaliar", "Aliviar", "Recuperar", "Movimentar"],
+  sections: [
+    {
+      id: "liberacao-miofascial", eyebrow: "Tensões musculares e fasciais", title: "Liberação Miofascial",
+      paragraphs: [
+        "A Liberação Miofascial é uma técnica manual utilizada para trabalhar tensões presentes nos músculos e na fáscia, tecido que envolve e conecta diferentes estruturas do corpo.",
+        "Durante o atendimento são aplicadas técnicas específicas de pressão, deslizamento e mobilização sobre regiões que apresentam maior rigidez, tensão muscular ou limitação de movimento.",
+        "Pode ser utilizada principalmente para:",
+      ],
+      items: ["Alívio de tensões e dores musculares", "Tratamento de pontos de tensão e pontos-gatilho", "Redução da sensação de musculatura rígida ou “travada”", "Melhora da mobilidade e amplitude de movimento", "Auxílio na recuperação muscular após treinos", "Preparação muscular para atividades físicas", "Melhora da percepção e liberdade de movimento", "Redução de sobrecargas musculares relacionadas à rotina ou ao esporte"],
+      closing: ["É uma técnica muito utilizada tanto em pessoas que apresentam dores decorrentes de postura, trabalho ou atividades diárias quanto em atletas que buscam melhor recuperação e desempenho muscular."],
+      mediaLabel: "Aplicação de liberação miofascial",
+    },
+    {
+      id: "dry-needling", eyebrow: "Agulhamento seco", title: "Dry Needling",
+      paragraphs: [
+        "O Dry Needling, também conhecido como agulhamento seco, é uma técnica que utiliza agulhas muito finas aplicadas em regiões específicas da musculatura, principalmente em áreas que apresentam pontos-gatilho miofasciais e tensão muscular localizada.",
+        "Esses pontos podem estar relacionados à dor local, dor irradiada, sensação de musculatura presa e redução da mobilidade.",
+        "O objetivo da técnica é promover uma resposta local no músculo e auxiliar na redução da tensão existente naquela região.",
+        "O Dry Needling pode ser utilizado como recurso complementar para:",
+      ],
+      items: ["Tratamento de pontos-gatilho", "Redução de tensões musculares profundas", "Auxílio no controle de dores musculares", "Melhora da mobilidade", "Redução da sensação de musculatura endurecida", "Recuperação de regiões muito sobrecarregadas", "Complementação da Liberação Miofascial e de outras técnicas manuais"],
+      closing: ["A indicação da técnica depende da avaliação realizada durante o atendimento."],
+      mediaLabel: "Aplicação da técnica Dry Needling",
+    },
+    {
+      id: "ventosaterapia", eyebrow: "Pressão negativa controlada", title: "Ventosaterapia",
+      paragraphs: [
+        "A Ventosaterapia utiliza ventosas que produzem uma pressão negativa sobre a pele e os tecidos superficiais.",
+        "A técnica pode ser aplicada de forma estática, com as ventosas permanecendo durante determinado período em regiões específicas, ou de maneira dinâmica, realizando deslizamentos sobre a musculatura.",
+        "É utilizada principalmente como complemento no trabalho de recuperação muscular e relaxamento de regiões com maior tensão.",
+        "Entre seus objetivos estão:",
+      ],
+      items: ["Auxiliar na redução de tensões musculares", "Estimular a circulação local", "Promover sensação de relaxamento muscular", "Trabalhar regiões com maior rigidez", "Auxiliar na recuperação após atividades físicas", "Complementar técnicas de Liberação Miofascial e Massoterapia"],
+      closing: ["Dependendo da intensidade e do tempo de aplicação, podem surgir marcas temporárias na pele, decorrentes da ação da ventosa sobre a região."],
+      mediaLabel: "Aplicação de ventosaterapia",
+    },
+    {
+      id: "quiropraxia", eyebrow: "Mobilidade e conforto articular", title: "Quiropraxia e Terapias de Mobilidade Articular",
+      paragraphs: [
+        "O atendimento também pode incluir técnicas de mobilidade e manipulação articular, utilizadas com o objetivo de melhorar a movimentação de determinadas regiões do corpo e reduzir sensações de rigidez ou bloqueio.",
+        "São técnicas que podem ser aplicadas principalmente em regiões como:",
+      ],
+      items: ["Coluna cervical", "Coluna torácica", "Coluna lombar", "Ombros", "Quadril", "Outras articulações, conforme avaliação e necessidade"],
+      closing: ["O objetivo é favorecer a mobilidade articular, conforto durante os movimentos e redução da sensação de rigidez.", "As técnicas são escolhidas de acordo com a necessidade e as condições apresentadas por cada pessoa, não sendo obrigatório realizar manipulações em todos os atendimentos."],
+      mediaLabel: "Terapias de mobilidade articular",
+    },
+    {
+      id: "eletroestimulacao", eyebrow: "Recurso complementar", title: "Eletroestimulação",
+      paragraphs: [
+        "A Eletroestimulação é utilizada como recurso complementar durante determinadas sessões.",
+        "Por meio de eletrodos posicionados sobre regiões específicas, são aplicados estímulos elétricos controlados que podem auxiliar no trabalho muscular e no controle de desconfortos.",
+        "Dependendo do objetivo do atendimento, a eletroestimulação pode ser utilizada para:",
+      ],
+      items: ["Auxiliar no relaxamento muscular", "Complementar estratégias de analgesia", "Estimular determinadas regiões musculares", "Auxiliar na recuperação física", "Potencializar determinados protocolos de tratamento"],
+      closing: ["Os parâmetros são definidos de acordo com a região trabalhada e o objetivo da sessão."],
+      mediaLabel: "Aplicação de eletroestimulação",
+    },
+    {
+      id: "eletro-dry-needling", eyebrow: "Estímulo combinado", title: "Eletro Dry Needling",
+      paragraphs: [
+        "O Eletro Dry Needling combina o agulhamento seco com estimulação elétrica aplicada por meio das próprias agulhas.",
+        "Após o posicionamento das agulhas em pontos previamente selecionados, pode ser aplicada uma corrente elétrica de baixa intensidade e controlada.",
+        "A técnica é utilizada principalmente em regiões com tensões musculares mais persistentes ou pontos-gatilho que necessitam de um estímulo complementar.",
+        "Pode auxiliar em:",
+      ],
+      items: ["Redução de tensão muscular", "Tratamento de pontos-gatilho", "Estímulo neuromuscular", "Controle de dores musculares", "Recuperação de regiões sobrecarregadas", "Melhora da resposta muscular ao tratamento"],
+      closing: ["Sua utilização é definida individualmente durante o atendimento."],
+      mediaLabel: "Aplicação de Eletro Dry Needling",
+    },
+    {
+      id: "pedras-quentes", eyebrow: "Calor e relaxamento", title: "Pedras Quentes",
+      paragraphs: [
+        "A utilização de Pedras Quentes pode ser incorporada às sessões principalmente quando o objetivo é proporcionar maior relaxamento muscular.",
+        "As pedras aquecidas são posicionadas ou utilizadas em movimentos sobre determinadas regiões do corpo, proporcionando calor controlado à musculatura.",
+        "O recurso pode contribuir para:",
+      ],
+      items: ["Relaxamento muscular", "Redução da sensação de tensão", "Aumento do conforto durante a sessão", "Preparação da musculatura para técnicas manuais", "Sensação de bem-estar e relaxamento corporal"],
+      closing: ["Pode ser utilizado de maneira complementar a outras técnicas de Massoterapia."],
+      mediaLabel: "Utilização terapêutica de pedras quentes",
+    },
+    {
+      id: "atendimento-integrado", eyebrow: "Técnicas que trabalham juntas", title: "Atendimento Integrado",
+      paragraphs: [
+        "Um dos principais diferenciais do atendimento é a possibilidade de combinar diferentes recursos dentro da mesma sessão, de acordo com o que for identificado durante a avaliação.",
+        "Por exemplo, uma região com muita tensão muscular pode receber inicialmente técnicas de Liberação Miofascial e, posteriormente, Dry Needling, Eletroestimulação, Ventosaterapia ou mobilizações articulares.",
+      ],
+      items: [],
+      closing: ["Dessa forma, o atendimento não segue necessariamente um protocolo único ou padronizado. A escolha das técnicas é realizada de acordo com a queixa, condição muscular, mobilidade e objetivo de cada pessoa."],
+      mediaLabel: "Combinação personalizada de técnicas",
+    },
+    {
+      id: "recovery", eyebrow: "Preparação e recuperação", title: "Recovery Esportivo",
+      paragraphs: [
+        "Para atletas e praticantes de atividades físicas, o atendimento também pode ser direcionado ao Recovery Esportivo, com estratégias voltadas à preparação e recuperação muscular.",
+        "O trabalho pode ser realizado tanto antes quanto após treinos, competições ou períodos de maior sobrecarga física.",
+        "Entre os principais objetivos estão:",
+      ],
+      items: ["Redução da tensão muscular provocada pelos treinamentos", "Melhora da mobilidade", "Recuperação entre sessões de treinamento", "Preparação da musculatura antes de atividades físicas", "Redução da sensação de peso e rigidez muscular", "Manutenção da qualidade de movimento", "Suporte à rotina de treinamento e performance esportiva"],
+      closing: ["As técnicas utilizadas podem incluir Liberação Miofascial, Ventosaterapia, Dry Needling, Eletroestimulação, mobilidade articular e outros recursos disponíveis no atendimento."],
+      mediaLabel: "Sessão de recovery esportivo",
+    },
+    {
+      id: "indicacao", eyebrow: "Atletas e não atletas", title: "Para Quem é Indicado?",
+      paragraphs: ["Os atendimentos podem ser realizados tanto por atletas quanto por pessoas que não praticam esportes.", "São especialmente procurados por pessoas que apresentam:"],
+      items: ["Dores e tensões musculares", "Rigidez corporal", "Desconfortos relacionados à rotina de trabalho", "Sobrecarga provocada por musculação ou outros esportes", "Redução da mobilidade", "Pontos de tensão recorrentes", "Necessidade de recuperação muscular", "Necessidade de preparação antes de treinos ou competições", "Busca por melhora da qualidade de movimento e bem-estar corporal"],
+      closing: ["O atendimento é sempre adaptado às necessidades individuais, respeitando as condições, limitações e objetivos apresentados por cada pessoa."],
+      mediaLabel: "Atendimento adaptado a cada pessoa",
+    },
+  ],
+};

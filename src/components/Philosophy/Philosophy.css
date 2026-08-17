@@ -1,0 +1,81 @@
+.philosophy {
+  position: relative;
+  display: grid;
+  min-height: 720px;
+  overflow: hidden;
+  padding: clamp(100px, 12vw, 170px) 24px;
+  background: #101415;
+  color: #f2eef3;
+  place-items: center;
+}
+
+.philosophy::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(78vw, 900px);
+  height: min(70vw, 600px);
+  border-radius: 50%;
+  background: rgb(181 105 218 / 6%);
+  content: "";
+  filter: blur(100px);
+  transform: translate(-50%, -50%);
+}
+
+.philosophy__quote {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 970px);
+  margin: 0;
+  text-align: center;
+}
+
+.philosophy__icon {
+  width: 48px;
+  height: 38px;
+  margin-bottom: 44px;
+  fill: #6e587a;
+}
+
+.philosophy__quote > p {
+  margin: 0;
+  font: 700 clamp(2.45rem, 4.65vw, 4.25rem)/1.05 "Sora", sans-serif;
+  letter-spacing: -0.052em;
+  text-wrap: balance;
+}
+
+.philosophy__quote footer {
+  margin-top: 43px;
+}
+
+.philosophy__quote cite {
+  color: #e797ff;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 620px) {
+  .philosophy {
+    min-height: 680px;
+    padding: 100px 20px;
+  }
+
+  .philosophy__icon {
+    width: 38px;
+    margin-bottom: 34px;
+  }
+
+  .philosophy__quote > p {
+    font-size: clamp(2rem, 9.5vw, 2.75rem);
+    line-height: 1.1;
+  }
+
+  .philosophy__quote footer {
+    margin-top: 34px;
+  }
+}

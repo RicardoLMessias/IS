@@ -1,0 +1,97 @@
+:root {
+  font-family: "Manrope", sans-serif;
+  color: #e1e3e4;
+  background: #111415;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+  scrollbar-gutter: stable;
+  scrollbar-color: #b76fda #111415;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #111415;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid #111415;
+  border-radius: 999px;
+  background: #b76fda;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #e4b5ff;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #e4b5ff;
+  outline-offset: 4px;
+}
+
+.page-section {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 120px 20px;
+}
+
+.page-section--dark {
+  background: #111415;
+}
+
+.page-section--light {
+  background: #191c1d;
+}
+
+.section-content {
+  width: min(100%, 1200px);
+}
+
+.section-content span {
+  color: #e4b5ff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-content h1 {
+  margin: 12px 0;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+.section-content p {
+  color: #cfc2d2;
+  font-size: 1.1rem;
+}
