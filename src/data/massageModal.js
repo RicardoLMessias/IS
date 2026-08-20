@@ -8,6 +8,7 @@ export const massageModal = {
     "O objetivo é trabalhar não apenas o ponto em que a dor é percebida, mas também possíveis tensões musculares, restrições fasciais, pontos-gatilho e alterações de mobilidade que possam estar contribuindo para o desconforto.",
   ],
   highlights: ["Avaliar", "Aliviar", "Recuperar", "Movimentar"],
+  footer: { text: "Movimento, alívio e recuperação em cada sessão.", cta: "Quero agendar" },
   sections: [
     {
       id: "liberacao-miofascial", eyebrow: "Tensões musculares e fasciais", title: "Liberação Miofascial",
@@ -19,6 +20,7 @@ export const massageModal = {
       items: ["Alívio de tensões e dores musculares", "Tratamento de pontos de tensão e pontos-gatilho", "Redução da sensação de musculatura rígida ou “travada”", "Melhora da mobilidade e amplitude de movimento", "Auxílio na recuperação muscular após treinos", "Preparação muscular para atividades físicas", "Melhora da percepção e liberdade de movimento", "Redução de sobrecargas musculares relacionadas à rotina ou ao esporte"],
       closing: ["É uma técnica muito utilizada tanto em pessoas que apresentam dores decorrentes de postura, trabalho ou atividades diárias quanto em atletas que buscam melhor recuperação e desempenho muscular."],
       mediaLabel: "Aplicação de liberação miofascial",
+      media: { type: "frames", basePath: "/images/frames/liberacaomiofacial", extension: "webp", startFrame: 1, frameCount: 140, duration: 5, scrollScreens: 4.2, mobileScrollScreens: 3.4, caption: "Liberação miofascial", futureAsset: "video" },
     },
     {
       id: "dry-needling", eyebrow: "Agulhamento seco", title: "Dry Needling",
@@ -31,6 +33,7 @@ export const massageModal = {
       items: ["Tratamento de pontos-gatilho", "Redução de tensões musculares profundas", "Auxílio no controle de dores musculares", "Melhora da mobilidade", "Redução da sensação de musculatura endurecida", "Recuperação de regiões muito sobrecarregadas", "Complementação da Liberação Miofascial e de outras técnicas manuais"],
       closing: ["A indicação da técnica depende da avaliação realizada durante o atendimento."],
       mediaLabel: "Aplicação da técnica Dry Needling",
+      media: { type: "frames", basePath: "/images/frames/Dry Needling", extension: "webp", startFrame: 151, frameCount: 140, duration: 5, scrollScreens: 4.2, mobileScrollScreens: 3.4, caption: "Dry Needling", futureAsset: "video" },
     },
     {
       id: "ventosaterapia", eyebrow: "Pressão negativa controlada", title: "Ventosaterapia",
@@ -43,6 +46,7 @@ export const massageModal = {
       items: ["Auxiliar na redução de tensões musculares", "Estimular a circulação local", "Promover sensação de relaxamento muscular", "Trabalhar regiões com maior rigidez", "Auxiliar na recuperação após atividades físicas", "Complementar técnicas de Liberação Miofascial e Massoterapia"],
       closing: ["Dependendo da intensidade e do tempo de aplicação, podem surgir marcas temporárias na pele, decorrentes da ação da ventosa sobre a região."],
       mediaLabel: "Aplicação de ventosaterapia",
+      media: { type: "frames", basePath: "/images/frames/ventosa", extension: "webp", startFrame: 1, frameCount: 140, duration: 5, scrollScreens: 4.2, mobileScrollScreens: 3.4, caption: "Ventosaterapia", futureAsset: "video" },
     },
     {
       id: "quiropraxia", eyebrow: "Mobilidade e conforto articular", title: "Quiropraxia e Terapias de Mobilidade Articular",
@@ -53,6 +57,7 @@ export const massageModal = {
       items: ["Coluna cervical", "Coluna torácica", "Coluna lombar", "Ombros", "Quadril", "Outras articulações, conforme avaliação e necessidade"],
       closing: ["O objetivo é favorecer a mobilidade articular, conforto durante os movimentos e redução da sensação de rigidez.", "As técnicas são escolhidas de acordo com a necessidade e as condições apresentadas por cada pessoa, não sendo obrigatório realizar manipulações em todos os atendimentos."],
       mediaLabel: "Terapias de mobilidade articular",
+      media: { type: "frames", basePath: "/images/frames/quiro", extension: "webp", startFrame: 1, frameCount: 140, duration: 5, scrollScreens: 4.2, mobileScrollScreens: 3.4, caption: "Mobilidade articular", futureAsset: "video" },
     },
     {
       id: "eletroestimulacao", eyebrow: "Recurso complementar", title: "Eletroestimulação",
@@ -64,6 +69,7 @@ export const massageModal = {
       items: ["Auxiliar no relaxamento muscular", "Complementar estratégias de analgesia", "Estimular determinadas regiões musculares", "Auxiliar na recuperação física", "Potencializar determinados protocolos de tratamento"],
       closing: ["Os parâmetros são definidos de acordo com a região trabalhada e o objetivo da sessão."],
       mediaLabel: "Aplicação de eletroestimulação",
+      media: { type: "frames", basePath: "/images/frames/eletro", extension: "webp", startFrame: 1, frameCount: 140, duration: 5, scrollScreens: 4.2, mobileScrollScreens: 3.4, caption: "Eletroestimulação", futureAsset: "video" },
     },
     {
       id: "eletro-dry-needling", eyebrow: "Estímulo combinado", title: "Eletro Dry Needling",
@@ -76,6 +82,7 @@ export const massageModal = {
       items: ["Redução de tensão muscular", "Tratamento de pontos-gatilho", "Estímulo neuromuscular", "Controle de dores musculares", "Recuperação de regiões sobrecarregadas", "Melhora da resposta muscular ao tratamento"],
       closing: ["Sua utilização é definida individualmente durante o atendimento."],
       mediaLabel: "Aplicação de Eletro Dry Needling",
+      media: { type: "pending", futureAsset: "video" },
     },
     {
       id: "pedras-quentes", eyebrow: "Calor e relaxamento", title: "Pedras Quentes",
@@ -87,6 +94,7 @@ export const massageModal = {
       items: ["Relaxamento muscular", "Redução da sensação de tensão", "Aumento do conforto durante a sessão", "Preparação da musculatura para técnicas manuais", "Sensação de bem-estar e relaxamento corporal"],
       closing: ["Pode ser utilizado de maneira complementar a outras técnicas de Massoterapia."],
       mediaLabel: "Utilização terapêutica de pedras quentes",
+      media: { type: "pending", futureAsset: "video" },
     },
     {
       id: "atendimento-integrado", eyebrow: "Técnicas que trabalham juntas", title: "Atendimento Integrado",

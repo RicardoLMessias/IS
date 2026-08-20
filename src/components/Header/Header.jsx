@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Header.css";
 
 const navigation = [
@@ -11,6 +11,8 @@ const navigation = [
 ];
 
 export default function Header() {
+  const menuButtonRef = useRef(null);
+  const menuCloseRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
@@ -42,7 +44,19 @@ export default function Header() {
 
   useEffect(() => {
     document.body.classList.toggle("menu-open", isMenuOpen);
-    return () => document.body.classList.remove("menu-open");
+    if (!isMenuOpen) return () => document.body.classList.remove("menu-open");
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+    menuCloseRef.current?.focus({ preventScroll: true });
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.classList.remove("menu-open");
+      menuButtonRef.current?.focus({ preventScroll: true });
+    };
   }, [isMenuOpen]);
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -72,7 +86,14 @@ export default function Header() {
         </nav>
 
         <a className="header__logo" href="#inicio" aria-label="Igor Santos — início">
-          <img src="/images/igor-santos-logo.png" alt="Igor Santos" />
+          <img
+            alt="Igor Santos"
+            decoding="async"
+            fetchPriority="high"
+            height="278"
+            src={`${import.meta.env.BASE_URL}images/igor-santos-logo.webp`}
+            width="240"
+          />
         </a>
 
         <div className="header__right">
@@ -90,6 +111,7 @@ export default function Header() {
             aria-label="Abrir menu"
             className="menu-button"
             onClick={() => setIsMenuOpen(true)}
+            ref={menuButtonRef}
             type="button"
           >
             <span />
@@ -110,10 +132,11 @@ export default function Header() {
         aria-hidden={!isMenuOpen}
         className={`mobile-menu${isMenuOpen ? " mobile-menu--open" : ""}`}
         id="mobile-navigation"
+        inert={!isMenuOpen ? "" : undefined}
       >
         <div className="mobile-menu__header">
           <span>Menu</span>
-          <button aria-label="Fechar menu" onClick={closeMenu} type="button">×</button>
+          <button aria-label="Fechar menu" onClick={closeMenu} ref={menuCloseRef} type="button">×</button>
         </div>
         <nav aria-label="Navegação mobile">{navigation.map(renderLink)}</nav>
         <a className="schedule-button schedule-button--mobile" href="#contato" onClick={closeMenu}>

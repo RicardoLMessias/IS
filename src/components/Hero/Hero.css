@@ -85,7 +85,7 @@
   text-transform: uppercase;
 }
 
-.hero-slide h1 {
+.hero-slide__title {
   max-width: 730px;
   margin: 0;
   font-family: "Sora", sans-serif;
@@ -226,7 +226,7 @@
     padding: 110px 28px 96px 0;
   }
 
-  .hero-slide h1 {
+  .hero-slide__title {
     font-size: clamp(2.35rem, 11vw, 3.25rem);
   }
 

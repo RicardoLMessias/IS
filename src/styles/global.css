@@ -11,7 +11,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: 0;
   scrollbar-gutter: stable;
   scrollbar-color: #b76fda #111415;
@@ -45,6 +45,14 @@ body {
 
 body.menu-open {
   overflow: hidden;
+}
+
+body.zoom-open {
+  overflow: hidden;
+}
+
+#smooth-content {
+  will-change: transform;
 }
 
 button,

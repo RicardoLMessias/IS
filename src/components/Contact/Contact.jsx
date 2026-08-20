@@ -21,26 +21,48 @@ export default function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const form = event.currentTarget;
     setFormStatus({ state: "sending", message: "Enviando sua mensagem..." });
 
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 25000);
+
     try {
-      const response = await fetch("/api/contact.php", {
+      const endpoint = `${import.meta.env.BASE_URL}api/contact.php`;
+      const sendRequest = () => fetch(endpoint, {
         method: "POST",
-        body: new FormData(event.currentTarget),
+        body: new FormData(form),
+        signal: controller.signal,
       });
-      const result = await response.json();
+
+      let response = await sendRequest();
+
+      // O domínio temporário da HostGator exige este cookie anti-bot.
+      if (response.status === 409 && window.location.hostname.endsWith(".meusitehostgator.com.br")) {
+        document.cookie = "humans_21909=1; path=/; SameSite=Lax; Secure";
+        response = await sendRequest();
+      }
+
+      const contentType = response.headers.get("content-type") || "";
+      const result = contentType.includes("application/json")
+        ? await response.json()
+        : { success: false, message: "O servidor não conseguiu processar o envio." };
 
       if (!response.ok || !result.success) {
         throw new Error(result.message || "Não foi possível enviar a mensagem.");
       }
 
-      event.currentTarget.reset();
+      form.reset();
       setFormStatus({ state: "success", message: result.message });
     } catch (error) {
       setFormStatus({
         state: "error",
-        message: error.message || "Ocorreu um erro. Tente novamente mais tarde.",
+        message: error.name === "AbortError"
+          ? "O envio demorou mais que o esperado. Tente novamente."
+          : error.message || "Ocorreu um erro. Tente novamente mais tarde.",
       });
+    } finally {
+      window.clearTimeout(timeout);
     }
   };
 
@@ -124,19 +146,19 @@ export default function Contact() {
 
           <div className="contact-form__field">
             <label htmlFor="contact-name">Nome</label>
-            <input id="contact-name" name="name" placeholder="Seu nome" required type="text" autoComplete="name" />
+            <input id="contact-name" maxLength="100" name="name" placeholder="Seu nome" required type="text" autoComplete="name" />
           </div>
           <div className="contact-form__field">
             <label htmlFor="contact-email">Email</label>
-            <input id="contact-email" name="email" placeholder="Seu email" required type="email" autoComplete="email" />
+            <input id="contact-email" maxLength="254" name="email" placeholder="Seu email" required type="email" autoComplete="email" />
           </div>
           <div className="contact-form__field">
             <label htmlFor="contact-phone">Celular</label>
-            <input id="contact-phone" name="phone" placeholder="(11) 99999-9999" required type="tel" autoComplete="tel" />
+            <input id="contact-phone" inputMode="tel" maxLength="30" name="phone" placeholder="(11) 99999-9999" required type="tel" autoComplete="tel" />
           </div>
           <div className="contact-form__field">
             <label htmlFor="contact-message">Mensagem</label>
-            <textarea id="contact-message" name="message" placeholder="Como posso te ajudar?" required />
+            <textarea id="contact-message" maxLength="5000" name="message" placeholder="Como posso te ajudar?" required />
           </div>
           <div className="contact-form__honeypot" aria-hidden="true">
             <label htmlFor="contact-website">Não preencha</label>

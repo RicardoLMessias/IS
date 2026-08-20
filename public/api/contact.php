@@ -1,27 +1,36 @@
 <?php
 declare(strict_types=1);
 
-header('Content-Type: application/json; charset=utf-8');
+use PHPMailer\PHPMailer\Exception as MailerException;
+use PHPMailer\PHPMailer\PHPMailer;
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    echo json_encode(['success' => false, 'message' => 'Método não permitido.']);
+header('Content-Type: application/json; charset=utf-8');
+header('X-Content-Type-Options: nosniff');
+header('Cache-Control: no-store, max-age=0');
+header('Referrer-Policy: no-referrer');
+
+function respond(int $status, bool $success, string $message): never
+{
+    http_response_code($status);
+    echo json_encode(
+        ['success' => $success, 'message' => $message],
+        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+    );
     exit;
 }
 
-// TROQUE pelo endereço que receberá as mensagens antes de publicar.
-$recipient = 'SEU_EMAIL@DOMINIO.COM';
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+    header('Allow: POST');
+    respond(405, false, 'Método não permitido.');
+}
 
-if ($recipient === 'SEU_EMAIL@DOMINIO.COM') {
-    http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'O destinatário do formulário ainda não foi configurado.']);
-    exit;
+if ((int) ($_SERVER['CONTENT_LENGTH'] ?? 0) > 100000) {
+    respond(413, false, 'Os dados enviados ultrapassaram o limite permitido.');
 }
 
 // Campo invisível: bots costumam preenchê-lo.
 if (!empty($_POST['website'] ?? '')) {
-    echo json_encode(['success' => true, 'message' => 'Mensagem enviada com sucesso.']);
-    exit;
+    respond(200, true, 'Mensagem enviada com sucesso.');
 }
 
 $name = trim((string) ($_POST['name'] ?? ''));
@@ -30,34 +39,88 @@ $phone = trim((string) ($_POST['phone'] ?? ''));
 $message = trim((string) ($_POST['message'] ?? ''));
 
 if ($name === '' || $phone === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(422);
-    echo json_encode(['success' => false, 'message' => 'Preencha todos os campos corretamente.']);
-    exit;
+    respond(422, false, 'Preencha todos os campos corretamente.');
 }
 
-if (mb_strlen($name) > 100 || mb_strlen($phone) > 30 || mb_strlen($message) > 5000) {
-    http_response_code(422);
-    echo json_encode(['success' => false, 'message' => 'Um ou mais campos ultrapassaram o tamanho permitido.']);
-    exit;
+$textLength = static fn (string $value): int => function_exists('mb_strlen')
+    ? mb_strlen($value, 'UTF-8')
+    : strlen($value);
+
+if ($textLength($name) > 100 || $textLength($email) > 254 || $textLength($phone) > 30 || $textLength($message) > 5000) {
+    respond(422, false, 'Um ou mais campos ultrapassaram o tamanho permitido.');
 }
 
-$safeName = str_replace(["\r", "\n"], '', $name);
+$safeName = trim(str_replace(["\r", "\n"], ' ', $name));
 $safeEmail = str_replace(["\r", "\n"], '', $email);
-$subject = 'Novo contato pelo site — ' . $safeName;
-$body = "Nome: {$safeName}\nEmail: {$safeEmail}\nCelular: {$phone}\n\nMensagem:\n{$message}\n";
-$headers = [
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-    'From: Site Igor Santos <no-reply@' . ($_SERVER['HTTP_HOST'] ?? 'localhost') . '>',
-    'Reply-To: ' . $safeEmail,
-];
+$safePhone = trim(str_replace(["\r", "\n"], ' ', $phone));
 
-$sent = mail($recipient, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, implode("\r\n", $headers));
-
-if (!$sent) {
-    http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Não foi possível enviar agora. Tente novamente mais tarde.']);
-    exit;
+$config = [];
+$configFile = __DIR__ . '/mail-config.php';
+if (is_file($configFile)) {
+    $loadedConfig = require $configFile;
+    $config = is_array($loadedConfig) ? $loadedConfig : [];
 }
 
-echo json_encode(['success' => true, 'message' => 'Mensagem enviada com sucesso. Em breve entraremos em contato.']);
+$gmailAddress = trim((string) (getenv('GMAIL_ADDRESS') ?: ($config['gmail_address'] ?? '')));
+$gmailPassword = preg_replace('/\s+/', '', (string) (getenv('GMAIL_APP_PASSWORD') ?: ($config['gmail_app_password'] ?? '')));
+$recipient = trim((string) (getenv('CONTACT_RECIPIENT') ?: ($config['recipient'] ?? $gmailAddress)));
+
+if (!filter_var($gmailAddress, FILTER_VALIDATE_EMAIL)
+    || !filter_var($recipient, FILTER_VALIDATE_EMAIL)
+    || $gmailPassword === '') {
+    error_log('Formulário de contato: configuração do Gmail incompleta.');
+    respond(500, false, 'O envio de e-mail ainda não foi configurado completamente.');
+}
+
+$subject = 'Novo contato pelo site — ' . $safeName;
+$body = "Novo contato recebido pelo site\n\n"
+    . "Nome: {$safeName}\n"
+    . "E-mail: {$safeEmail}\n"
+    . "Celular: {$safePhone}\n\n"
+    . "Mensagem:\n{$message}\n";
+
+$mailerFiles = [
+    __DIR__ . '/vendor/PHPMailer/src/Exception.php',
+    __DIR__ . '/vendor/PHPMailer/src/PHPMailer.php',
+    __DIR__ . '/vendor/PHPMailer/src/SMTP.php',
+];
+foreach ($mailerFiles as $mailerFile) {
+    if (!is_file($mailerFile)) {
+        error_log('Formulário de contato: dependência PHPMailer ausente.');
+        respond(500, false, 'O serviço de envio não está disponível no momento.');
+    }
+    require_once $mailerFile;
+}
+
+try {
+    $mailer = new PHPMailer(true);
+    $mailer->isSMTP();
+    $mailer->Host = 'smtp.gmail.com';
+    $mailer->SMTPAuth = true;
+    $mailer->Username = $gmailAddress;
+    $mailer->Password = $gmailPassword;
+    $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mailer->Port = 587;
+    $mailer->Timeout = 20;
+    $mailer->CharSet = PHPMailer::CHARSET_UTF8;
+
+    $mailer->setFrom($gmailAddress, 'Site Igor Santos');
+    $mailer->addAddress($recipient);
+    $mailer->addReplyTo($safeEmail, $safeName);
+    $mailer->Subject = $subject;
+    $mailer->Body = $body;
+    $mailer->AltBody = $body;
+    $mailer->send();
+} catch (MailerException $exception) {
+    $mailError = $mailer->ErrorInfo !== '' ? $mailer->ErrorInfo : $exception->getMessage();
+    error_log('Formulário de contato: erro PHPMailer: ' . $mailError);
+    if (in_array($_SERVER['REMOTE_ADDR'] ?? '', ['127.0.0.1', '::1'], true)) {
+        respond(500, false, 'Falha SMTP local: ' . $mailError);
+    }
+    respond(500, false, 'Não foi possível enviar agora. Verifique a configuração do Gmail.');
+} catch (Throwable $exception) {
+    error_log('Formulário de contato: erro inesperado: ' . $exception->getMessage());
+    respond(500, false, 'Não foi possível enviar agora. Tente novamente mais tarde.');
+}
+
+respond(200, true, 'Mensagem enviada com sucesso. Em breve entraremos em contato.');

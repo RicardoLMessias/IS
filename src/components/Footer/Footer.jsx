@@ -83,7 +83,14 @@ export default function Footer() {
       <div className="footer__container">
         <div className="footer__main">
           <a className="footer__logo" href="#inicio" aria-label="Igor Santos — início">
-            <img src="/images/igor-santos-logo.png" alt="Igor Santos" />
+            <img
+              alt="Igor Santos"
+              decoding="async"
+              height="278"
+              loading="lazy"
+              src={`${import.meta.env.BASE_URL}images/igor-santos-logo.webp`}
+              width="240"
+            />
           </a>
 
           <nav className="footer__navigation" aria-label="Navegação do rodapé">

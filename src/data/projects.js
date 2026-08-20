@@ -1,27 +1,56 @@
-// Edite esta lista para substituir imagens, títulos e descrições dos projetos.
-export const projects = [
+export const transformationImages = [
   {
-    id: "iniciativa-mobilidade",
-    title: "A Iniciativa de Mobilidade",
-    description:
-      "Um programa de 12 semanas focado na restauração de amplitude total de movimento para lutadores.",
-    images: [
-      {
-        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCKx2f7WMbERYMubn0lx8w2Q5t2E7eOD10s7D4VbZiHs5reyz4za3iXwbwcnGDaE9jUyflkPH5CG_e972tuhsn4cvRu-4fYuvDJ-6fO4k81dxBWihfgbWuJhloBBq94zk6AdyR6Mwv1WVmSOYVjQ7ajADtvglygMyteF8yQzCghJGrXGAXWJEvzKyp5ISNgCJKuGckSwwvDM8lXXeM_WZ1vEfqtY49y2q3PWZ2e-boT74P1oC1hT0XuqA",
-        alt: "Profissional avaliando a mobilidade de uma atleta",
-      },
-    ],
+    src: "./images/transformations/transformacao-01-frente.webp",
+    title: "Transformação 01",
+    angle: "De frente",
+    alt: "Antes e depois da transformação 01, vista de frente",
   },
   {
-    id: "recuperacao-pos-operatoria",
-    title: "Protocolo de Recuperação Pós-Operatória",
-    description:
-      "Integração de massagem especializada para acelerar a cura e prevenir acúmulo de tecido de cicatriz.",
-    images: [
-      {
-        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBKwaeMBbunm6iIN45qYTpJX96Qkyz3OHdBPrubQOV8BEjtfHXfJ1qpsX6hzizSTy0fgX9JZVOt9fLM8Ny1do1Pbjej9403Jy6iaFGhnrriB2Ry_X9-j-idpwD2BsmrNwLafCk5bYWP5ohTbcBgM7iNH8Mog_9uu0I9u6Ax649e4m4bnb0iObYrG0tBg0R16laQyDmabDokTbSrbkUV6owmL3ycCckGX8p2HsZa4OPDCy8sojHhkfTtfg",
-        alt: "Sessão de massagem especializada",
-      },
-    ],
+    src: "./images/transformations/transformacao-01-costas.webp",
+    title: "Transformação 01",
+    angle: "De costas",
+    alt: "Antes e depois da transformação 01, vista de costas",
+  },
+  {
+    src: "./images/transformations/transformacao-01-lado.webp",
+    title: "Transformação 01",
+    angle: "De lado",
+    alt: "Antes e depois da transformação 01, vista lateral",
+  },
+  {
+    src: "./images/transformations/transformacao-02-frente.webp",
+    title: "Transformação 02",
+    angle: "De frente",
+    alt: "Antes e depois da transformação 02, vista de frente",
+  },
+  {
+    src: "./images/transformations/transformacao-02-costas.webp",
+    title: "Transformação 02",
+    angle: "De costas",
+    alt: "Antes e depois da transformação 02, vista de costas",
+  },
+  {
+    src: "./images/transformations/transformacao-02-lado.webp",
+    title: "Transformação 02",
+    angle: "De lado",
+    alt: "Antes e depois da transformação 02, vista lateral",
+  },
+  {
+    src: "./images/transformations/transformacao-03-frente.webp",
+    title: "Transformação 03",
+    angle: "De frente",
+    alt: "Antes e depois da transformação 03, vista de frente",
+  },
+  {
+    src: "./images/transformations/transformacao-03-costas.webp",
+    title: "Transformação 03",
+    angle: "De costas",
+    alt: "Antes e depois da transformação 03, vista de costas",
+  },
+  {
+    src: "./images/transformations/transformacao-03-lado.webp",
+    title: "Transformação 03",
+    angle: "De lado",
+    alt: "Antes e depois da transformação 03, vista lateral",
   },
 ];

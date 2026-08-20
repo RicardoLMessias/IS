@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { heroSlides } from "../../data/heroSlides.js";
 import "./Hero.css";
 
-const AUTOPLAY_DELAY = 6500;
+const AUTOPLAY_DELAY = 5000;
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -75,12 +75,15 @@ export default function Hero() {
       tabIndex="0"
     >
       <div className="hero__slides" aria-live="off">
-        {heroSlides.map((slide, index) => (
-          <article
-            aria-hidden={index !== activeIndex}
-            className={`hero-slide${index === activeIndex ? " hero-slide--active" : ""}`}
-            key={slide.id}
-          >
+        {heroSlides.map((slide, index) => {
+          const TitleTag = index === 0 ? "h1" : "h2";
+
+          return (
+            <article
+              aria-hidden={index !== activeIndex}
+              className={`hero-slide${index === activeIndex ? " hero-slide--active" : ""}`}
+              key={slide.id}
+            >
             <img
               alt={slide.imageAlt}
               className="hero-slide__image"
@@ -92,7 +95,7 @@ export default function Hero() {
 
             <div className="hero-slide__content">
               <p className="hero-slide__eyebrow">{slide.eyebrow}</p>
-              <h1>{slide.title}</h1>
+              <TitleTag className="hero-slide__title">{slide.title}</TitleTag>
               <p className="hero-slide__description">{slide.description}</p>
 
               <div className="hero-slide__actions">
@@ -113,8 +116,9 @@ export default function Hero() {
                 })}
               </div>
             </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
 
       {heroSlides.length > 1 && (

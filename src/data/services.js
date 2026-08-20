@@ -5,7 +5,7 @@ export const services = [
     title: "Treinamento Pessoal",
     description:
       "Programas sob medida de força e condicionamento baseados no seu perfil biométrico e objetivos de performance.",
-    tags: ["Hipertrofia", "Mobilidade"],
+    tags: ["Hipertrofia", "Definição Muscular", "Preparação Física"],
   },
   {
     id: "massagem-terapeutica",
@@ -13,6 +13,6 @@ export const services = [
     title: "Massagem Terapêutica",
     description:
       "Massagem desportiva e deep tissue focada para aliviar a tensão miofascial, acelerar a recuperação e prevenir lesões.",
-    tags: ["Deep Tissue", "Desportiva"],
+    tags: ["Quiropraxia", "Liberação Miofascial", "Dry needling", "Ventosaterapia"],
   },
 ];

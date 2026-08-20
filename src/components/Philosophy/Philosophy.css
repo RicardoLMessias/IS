@@ -47,6 +47,15 @@
   text-wrap: balance;
 }
 
+.philosophy__line-mask {
+  padding-block: 0.06em;
+  margin-block: -0.06em;
+}
+
+.philosophy__word {
+  will-change: opacity, transform;
+}
+
 .philosophy__quote footer {
   margin-top: 43px;
 }
