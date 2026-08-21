@@ -158,6 +158,8 @@ export default function ServiceMedia({ index, section }) {
           data-frame-count={media.frameCount}
           data-start-frame={media.startFrame || 1}
           data-extension={media.extension || "jpg"}
+          data-file-prefix={media.filePrefix || "frame_"}
+          data-number-padding={media.numberPadding || 4}
           role="img"
         />
         <div className="modal-service__media-number">{String(index + 1).padStart(2, "0")}</div>

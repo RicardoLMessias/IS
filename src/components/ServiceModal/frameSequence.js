@@ -8,6 +8,8 @@ export function createFrameSequence(canvas) {
   const frameCount = Number(canvas.dataset.frameCount);
   const startFrame = Number(canvas.dataset.startFrame || 1);
   const extension = canvas.dataset.extension || "webp";
+  const filePrefix = canvas.dataset.filePrefix || "frame_";
+  const numberPadding = Number(canvas.dataset.numberPadding || 4);
   const configuredBasePath = canvas.dataset.basePath;
   const basePath = /^(?:https?:)?\/\//i.test(configuredBasePath)
     ? configuredBasePath.replace(/\/$/, "")
@@ -40,7 +42,8 @@ export function createFrameSequence(canvas) {
 
     const image = new Image();
     image.decoding = "async";
-    image.src = `${basePath}/frame_${String(startFrame + safeIndex).padStart(4, "0")}.${extension}`;
+    const frameNumber = String(startFrame + safeIndex).padStart(numberPadding, "0");
+    image.src = `${basePath}/${filePrefix}${frameNumber}.${extension}`;
     image.addEventListener("load", () => {
       if (!destroyed && safeIndex === currentFrame) drawFrame(image);
     }, { once: true });

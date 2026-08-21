@@ -82,7 +82,7 @@ export const massageModal = {
       items: ["Redução de tensão muscular", "Tratamento de pontos-gatilho", "Estímulo neuromuscular", "Controle de dores musculares", "Recuperação de regiões sobrecarregadas", "Melhora da resposta muscular ao tratamento"],
       closing: ["Sua utilização é definida individualmente durante o atendimento."],
       mediaLabel: "Aplicação de Eletro Dry Needling",
-      media: { type: "pending", futureAsset: "video" },
+      media: { type: "frames", basePath: "/images/frames/eletro2", extension: "webp", filePrefix: "Image", numberPadding: 2, startFrame: 1, frameCount: 300, duration: 10, scrollScreens: 8.4, mobileScrollScreens: 6.8, caption: "Eletro Dry Needling", futureAsset: "video" },
     },
     {
       id: "pedras-quentes", eyebrow: "Calor e relaxamento", title: "Pedras Quentes",
@@ -94,7 +94,7 @@ export const massageModal = {
       items: ["Relaxamento muscular", "Redução da sensação de tensão", "Aumento do conforto durante a sessão", "Preparação da musculatura para técnicas manuais", "Sensação de bem-estar e relaxamento corporal"],
       closing: ["Pode ser utilizado de maneira complementar a outras técnicas de Massoterapia."],
       mediaLabel: "Utilização terapêutica de pedras quentes",
-      media: { type: "pending", futureAsset: "video" },
+      media: { type: "frames", basePath: "/images/frames/pedraquente", extension: "webp", filePrefix: "Image", numberPadding: 2, startFrame: 1, frameCount: 150, duration: 10, scrollScreens: 4.2, mobileScrollScreens: 3.4, caption: "Pedras quentes", futureAsset: "video" },
     },
     {
       id: "atendimento-integrado", eyebrow: "Técnicas que trabalham juntas", title: "Atendimento Integrado",
