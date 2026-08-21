@@ -1,6 +1,6 @@
 // Substitua estes dados pelos contatos e endereços definitivos do cliente.
 export const contactDetails = {
-  email: "contact@igorsantos.com",
+  email: "contato.igorpersonal@gmail.com",
   phoneLabel: "+55 11 97613-5348",
   phoneNumber: "+5511976135348",
   instagramUrl: "https://www.instagram.com/i.s.coach/",

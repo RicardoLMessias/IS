@@ -306,8 +306,26 @@ export default function ServiceModal({ content, isOpen, onClose }) {
       });
     }
 
+    // O primeiro cálculo pode acontecer antes da fonte Sora terminar de
+    // carregar. No celular isso altera bastante a quebra das linhas e os
+    // pontos de início/fim da animação.
+    let cancelled = false;
+    const refreshAfterLayout = () => {
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          if (!cancelled) ScrollTrigger.refresh();
+        });
+      });
+    };
+
     ScrollTrigger.refresh();
+    refreshAfterLayout();
+    document.fonts?.ready.then(() => {
+      if (!cancelled) refreshAfterLayout();
+    });
+
     return () => {
+      cancelled = true;
       frameSequences.forEach((sequence) => sequence.destroy());
       triggers.forEach((trigger) => trigger.kill());
       splitAnimations.forEach((animation) => animation.kill());

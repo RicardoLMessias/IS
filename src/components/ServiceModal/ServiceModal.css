@@ -684,8 +684,8 @@ body.modal-open { overflow: hidden; }
   .modal-service--frames .modal-service__copy > p,
   .modal-service--frames .modal-service__closing p {
     margin-bottom: 14px;
-    font-size: .9rem;
-    line-height: 1.55;
+    font-size: .96rem;
+    line-height: 1.65;
   }
   .modal-service--frames .modal-service__content ul,
   .modal-service--frames .modal-service__copy ul {
@@ -696,8 +696,8 @@ body.modal-open { overflow: hidden; }
   .modal-service--frames .modal-service__content li,
   .modal-service--frames .modal-service__copy li {
     gap: 7px;
-    font-size: .68rem;
-    line-height: 1.35;
+    font-size: .82rem;
+    line-height: 1.45;
   }
   .modal-service--frames .modal-service__copy li svg {
     width: 15px;
@@ -757,8 +757,8 @@ body.modal-open { overflow: hidden; }
   .modal-service--text .modal-service__copy > p,
   .modal-service--text .modal-service__closing p {
     margin-bottom: 14px;
-    font-size: .88rem;
-    line-height: 1.55;
+    font-size: .96rem;
+    line-height: 1.65;
   }
   .modal-service--text .modal-service__content ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -768,8 +768,8 @@ body.modal-open { overflow: hidden; }
   }
   .modal-service--text .modal-service__content li {
     gap: 7px;
-    font-size: .68rem;
-    line-height: 1.35;
+    font-size: .82rem;
+    line-height: 1.45;
   }
   .modal-service--text .modal-service__content li svg {
     width: 15px;
@@ -821,9 +821,9 @@ body.modal-open { overflow: hidden; }
 
   .modal-service--frames .modal-service__copy > p,
   .modal-service--frames .modal-service__closing p {
-    margin-bottom: 10px;
-    font-size: .78rem;
-    line-height: 1.42;
+    margin-bottom: 14px;
+    font-size: .94rem;
+    line-height: 1.62;
   }
 
   .modal-service--frames .modal-service__content ul,
@@ -834,9 +834,9 @@ body.modal-open { overflow: hidden; }
 
   .modal-service--frames .modal-service__content li,
   .modal-service--frames .modal-service__copy li {
-    gap: 5px;
-    font-size: .59rem;
-    line-height: 1.22;
+    gap: 7px;
+    font-size: .8rem;
+    line-height: 1.42;
   }
 
   .modal-service--text .modal-service__content {
@@ -846,17 +846,17 @@ body.modal-open { overflow: hidden; }
 
   .modal-service--text .modal-service__text-number {
     margin-bottom: 8px;
-    font-size: .68rem;
+    font-size: .76rem;
   }
 
   .modal-service--text .modal-service__eyebrow {
     margin-bottom: 7px;
-    font-size: .66rem;
+    font-size: .76rem;
   }
 
   .modal-service--text .modal-service__content h3 {
-    font-size: clamp(1.68rem, 7.7vw, 2rem);
-    line-height: 1.02;
+    font-size: clamp(1.9rem, 8.8vw, 2.3rem);
+    line-height: 1.08;
   }
 
   .modal-service--text .modal-service__text-divider {
@@ -869,27 +869,28 @@ body.modal-open { overflow: hidden; }
 
   .modal-service--text .modal-service__copy > p,
   .modal-service--text .modal-service__closing p {
-    margin-bottom: 9px;
-    font-size: .76rem;
-    line-height: 1.4;
+    margin-bottom: 14px;
+    font-size: .94rem;
+    line-height: 1.62;
   }
 
   .modal-service--text .modal-service__content ul {
-    gap: 7px 9px;
-    margin: 9px 0 12px;
-    padding: 10px 9px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 16px 0 20px;
+    padding: 16px 14px;
   }
 
   .modal-service--text .modal-service__content li {
-    gap: 5px;
-    font-size: .58rem;
-    line-height: 1.22;
+    gap: 7px;
+    font-size: .82rem;
+    line-height: 1.42;
   }
 
   .modal-service--text .modal-service__content li svg,
   .modal-service--frames .modal-service__copy li svg {
-    width: 13px;
-    height: 13px;
+    width: 15px;
+    height: 15px;
   }
 }
 
